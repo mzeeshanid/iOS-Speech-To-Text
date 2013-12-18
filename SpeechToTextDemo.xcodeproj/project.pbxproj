@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B013A51186119F4002D16EC /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B013A50186119F4002D16EC /* bg.png */; };
+		8B013A5318611A50002D16EC /* mic.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B013A5218611A50002D16EC /* mic.png */; };
 		B33E33B3185E27C5005962B9 /* SpeechToTextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B33E33B4185E27C5005962B9 /* SineWaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B0185E27C5005962B9 /* SineWaveViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B33E33B5185E27C5005962B9 /* WaveDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B2185E27C5005962B9 /* WaveDisplay.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B013A50186119F4002D16EC /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		8B013A5218611A50002D16EC /* mic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic.png; sourceTree = "<group>"; };
 		B33E33AD185E27C5005962B9 /* SpeechToTextModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechToTextModule.h; sourceTree = "<group>"; };
 		B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechToTextModule.m; sourceTree = "<group>"; };
 		B33E33AF185E27C5005962B9 /* SineWaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveViewController.h; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 		B33E33AC185E27A7005962B9 /* SpeechToText */ = {
 			isa = PBXGroup;
 			children = (
+				8B013A50186119F4002D16EC /* bg.png */,
+				8B013A5218611A50002D16EC /* mic.png */,
 				B33E33B6185E27E0005962B9 /* Speex.framework */,
 				B33E33AD185E27C5005962B9 /* SpeechToTextModule.h */,
 				B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */,
@@ -260,7 +266,9 @@
 			files = (
 				B33E33BE185E2EE1005962B9 /* SineWaveViewController.xib in Resources */,
 				B3FFFF61185E0B390008EC39 /* Images.xcassets in Resources */,
+				8B013A51186119F4002D16EC /* bg.png in Resources */,
 				B3FFFF53185E0B390008EC39 /* InfoPlist.strings in Resources */,
+				8B013A5318611A50002D16EC /* mic.png in Resources */,
 				B3FFFF5C185E0B390008EC39 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,7 +47,6 @@
 }
 - (void)showSineWaveView:(SineWaveViewController *)view
 {
-    [view.view setFrame:self.view.bounds];
     [fakeTextField setInputView:view.view];
     [fakeTextField becomeFirstResponder];
 }
