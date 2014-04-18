@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84EF79E21901D6EC00D9089B /* SpeechToTextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */; };
+		84EF79E31901D6EE00D9089B /* SineWaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B0185E27C5005962B9 /* SineWaveViewController.m */; };
+		84EF79E41901D6F200D9089B /* WaveDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B2185E27C5005962B9 /* WaveDisplay.m */; };
+		84EF79E51901D6F600D9089B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FFFF58185E0B390008EC39 /* AppDelegate.m */; };
+		84EF79E61901D6F800D9089B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FFFF5E185E0B390008EC39 /* ViewController.m */; };
 		8B013A51186119F4002D16EC /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B013A50186119F4002D16EC /* bg.png */; };
 		8B013A5318611A50002D16EC /* mic.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B013A5218611A50002D16EC /* mic.png */; };
 		B33E33B3185E27C5005962B9 /* SpeechToTextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -49,7 +54,7 @@
 		B33E33B0185E27C5005962B9 /* SineWaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SineWaveViewController.m; sourceTree = "<group>"; };
 		B33E33B1185E27C5005962B9 /* WaveDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveDisplay.h; sourceTree = "<group>"; };
 		B33E33B2185E27C5005962B9 /* WaveDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveDisplay.m; sourceTree = "<group>"; };
-		B33E33B6185E27E0005962B9 /* Speex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Speex.framework; sourceTree = "<group>"; };
+		B33E33B6185E27E0005962B9 /* Speex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speex.framework; path = SpeechToText/Speex.framework; sourceTree = "<group>"; };
 		B33E33BD185E2EE1005962B9 /* SineWaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SineWaveViewController.xib; sourceTree = "<group>"; };
 		B3FFFF45185E0B390008EC39 /* SpeechToTextDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechToTextDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3FFFF48185E0B390008EC39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,7 +107,6 @@
 			children = (
 				8B013A50186119F4002D16EC /* bg.png */,
 				8B013A5218611A50002D16EC /* mic.png */,
-				B33E33B6185E27E0005962B9 /* Speex.framework */,
 				B33E33AD185E27C5005962B9 /* SpeechToTextModule.h */,
 				B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */,
 				B33E33AF185E27C5005962B9 /* SineWaveViewController.h */,
@@ -137,6 +141,7 @@
 		B3FFFF47185E0B390008EC39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B33E33B6185E27E0005962B9 /* Speex.framework */,
 				B3FFFF48185E0B390008EC39 /* Foundation.framework */,
 				B3FFFF4A185E0B390008EC39 /* CoreGraphics.framework */,
 				B3FFFF4C185E0B390008EC39 /* UIKit.framework */,
@@ -232,7 +237,7 @@
 		B3FFFF3D185E0B390008EC39 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Muhammad Zeeshan";
 				TargetAttributes = {
 					B3FFFF65185E0B3A0008EC39 = {
@@ -301,7 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EF79E61901D6F800D9089B /* ViewController.m in Sources */,
 				B3FFFF74185E0B3A0008EC39 /* SpeechToTextDemoTests.m in Sources */,
+				84EF79E41901D6F200D9089B /* WaveDisplay.m in Sources */,
+				84EF79E21901D6EC00D9089B /* SpeechToTextModule.m in Sources */,
+				84EF79E31901D6EE00D9089B /* SineWaveViewController.m in Sources */,
+				84EF79E51901D6F600D9089B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +357,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -386,7 +395,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -418,7 +426,6 @@
 		B3FFFF78185E0B3A0008EC39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -444,7 +451,6 @@
 		B3FFFF79185E0B3A0008EC39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -470,7 +476,6 @@
 		B3FFFF7B185E0B3A0008EC39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpeechToTextDemo.app/SpeechToTextDemo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -493,7 +498,6 @@
 		B3FFFF7C185E0B3A0008EC39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpeechToTextDemo.app/SpeechToTextDemo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

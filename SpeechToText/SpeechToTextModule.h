@@ -5,26 +5,31 @@
 //  Created by Sam Bosley on 10/7/11.
 //  Copyright (c) 2011 Todoroo. All rights reserved.
 //
+//  Modified by James Smith
+//
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <AudioToolbox/AudioToolbox.h>
+// Frameworks
+@import Foundation;
+@import UIKit;
+@import AudioToolbox;
 #import <speex/speex.h>
+
+// View Controllers
 #import "SineWaveViewController.h"
 
-#define kNumberBuffers 3
-#define kNumVolumeSamples 10
-#define kSilenceThresholdDB -30.0
+static const NSInteger kNumberBuffers = 3;
+static const NSInteger kNumVolumeSamples = 10;
+static const CGFloat kSilenceThresholdDB = - 30.0;
 
-#define kVolumeSamplingInterval 0.05
-#define kSilenceTimeThreshold 0.9
-#define kSilenceThresholdNumSamples kSilenceTimeThreshold / kVolumeSamplingInterval
+static const CGFloat kVolumeSamplingInterval = 0.05;
+static const CGFloat kSilenceTimeThreshold = 0.9;
+static const CGFloat kSilenceThresholdNumSamples = (kSilenceTimeThreshold / kVolumeSamplingInterval);
 
-// For scaling display
-#define kMinVolumeSampleValue 0.01
-#define kMaxVolumeSampleValue 1.0
+static const CGFloat kMinVolumeSampleValue = 0.01;
+static const CGFloat kMaxVolumeSampleValue = 1.0;
+
 typedef struct AQRecorderState {
-    AudioStreamBasicDescription  mDataFormat;                   
+    AudioStreamBasicDescription  mDataFormat;
     AudioQueueRef                mQueue;                        
     AudioQueueBufferRef          mBuffers[kNumberBuffers];                    
     UInt32                       bufferByteSize;                

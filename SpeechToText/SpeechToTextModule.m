@@ -6,13 +6,12 @@
 //  Copyright (c) 2011 Todoroo. All rights reserved.
 //
 
+// Models
 #import "SpeechToTextModule.h"
-#import "SineWaveViewController.h"
 
-#define FRAME_SIZE 110
+static const NSInteger FRAME_SIZE = 110;
 
 @interface SpeechToTextModule ()
-
 - (void)reset;
 - (void)postByteData:(NSData *)data;
 - (void)cleanUpProcessingThread;
@@ -72,6 +71,8 @@ static void DeriveBufferSize (AudioQueueRef audioQueue, AudioStreamBasicDescript
     return self;
 }
 
+
+#pragma mark - Initializers
 - (id)initWithCustomDisplay:(NSString *)nibName {
     if ((self = [super init])) {
         aqData.mDataFormat.mFormatID         = kAudioFormatLinearPCM; 
