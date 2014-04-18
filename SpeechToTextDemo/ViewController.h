@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SpeechToTextModule.h"
+#import "SpeechTranscriber.h"
 
-@interface ViewController : UIViewController <SpeechToTextModuleDelegate>
+@interface ViewController : UIViewController <SpeechTranscriberDelegate>
 {
     
 }
-@property(nonatomic, strong)SpeechToTextModule *speechToTextObj;
+@property(nonatomic, strong)SpeechTranscriber *speechToTextObj;
 @end

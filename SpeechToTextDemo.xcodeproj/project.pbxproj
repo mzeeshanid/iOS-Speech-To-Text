@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84EF79E21901D6EC00D9089B /* SpeechToTextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */; };
 		84EF79E31901D6EE00D9089B /* SineWaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B0185E27C5005962B9 /* SineWaveViewController.m */; };
 		84EF79E41901D6F200D9089B /* WaveDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B2185E27C5005962B9 /* WaveDisplay.m */; };
 		84EF79E51901D6F600D9089B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FFFF58185E0B390008EC39 /* AppDelegate.m */; };
 		84EF79E61901D6F800D9089B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FFFF5E185E0B390008EC39 /* ViewController.m */; };
+		84EF79E91901DB3D00D9089B /* SpeechTranscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */; };
+		84EF79EA1901E63F00D9089B /* SpeechTranscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */; };
+		84EF79EC1901E67100D9089B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EF79EB1901E67100D9089B /* AudioToolbox.framework */; };
+		84EF79EF1901E74400D9089B /* AQRecorderState.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79EE1901E74400D9089B /* AQRecorderState.m */; };
 		8B013A51186119F4002D16EC /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B013A50186119F4002D16EC /* bg.png */; };
 		8B013A5318611A50002D16EC /* mic.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B013A5218611A50002D16EC /* mic.png */; };
-		B33E33B3185E27C5005962B9 /* SpeechToTextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B33E33B4185E27C5005962B9 /* SineWaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B0185E27C5005962B9 /* SineWaveViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B33E33B5185E27C5005962B9 /* WaveDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B2185E27C5005962B9 /* WaveDisplay.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B33E33B7185E27E0005962B9 /* Speex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B33E33B6185E27E0005962B9 /* Speex.framework */; };
@@ -46,10 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84EF79E71901DB3D00D9089B /* SpeechTranscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechTranscriber.h; sourceTree = "<group>"; };
+		84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechTranscriber.m; sourceTree = "<group>"; };
+		84EF79EB1901E67100D9089B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		84EF79ED1901E74400D9089B /* AQRecorderState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQRecorderState.h; sourceTree = "<group>"; };
+		84EF79EE1901E74400D9089B /* AQRecorderState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQRecorderState.m; sourceTree = "<group>"; };
 		8B013A50186119F4002D16EC /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		8B013A5218611A50002D16EC /* mic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic.png; sourceTree = "<group>"; };
-		B33E33AD185E27C5005962B9 /* SpeechToTextModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechToTextModule.h; sourceTree = "<group>"; };
-		B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechToTextModule.m; sourceTree = "<group>"; };
 		B33E33AF185E27C5005962B9 /* SineWaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveViewController.h; sourceTree = "<group>"; };
 		B33E33B0185E27C5005962B9 /* SineWaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SineWaveViewController.m; sourceTree = "<group>"; };
 		B33E33B1185E27C5005962B9 /* WaveDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveDisplay.h; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EF79EC1901E67100D9089B /* AudioToolbox.framework in Frameworks */,
 				B33E33B7185E27E0005962B9 /* Speex.framework in Frameworks */,
 				B3FFFF4B185E0B390008EC39 /* CoreGraphics.framework in Frameworks */,
 				B3FFFF4D185E0B390008EC39 /* UIKit.framework in Frameworks */,
@@ -107,13 +113,15 @@
 			children = (
 				8B013A50186119F4002D16EC /* bg.png */,
 				8B013A5218611A50002D16EC /* mic.png */,
-				B33E33AD185E27C5005962B9 /* SpeechToTextModule.h */,
-				B33E33AE185E27C5005962B9 /* SpeechToTextModule.m */,
+				84EF79E71901DB3D00D9089B /* SpeechTranscriber.h */,
+				84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */,
 				B33E33AF185E27C5005962B9 /* SineWaveViewController.h */,
 				B33E33B0185E27C5005962B9 /* SineWaveViewController.m */,
 				B33E33BD185E2EE1005962B9 /* SineWaveViewController.xib */,
 				B33E33B1185E27C5005962B9 /* WaveDisplay.h */,
 				B33E33B2185E27C5005962B9 /* WaveDisplay.m */,
+				84EF79ED1901E74400D9089B /* AQRecorderState.h */,
+				84EF79EE1901E74400D9089B /* AQRecorderState.m */,
 			);
 			path = SpeechToText;
 			sourceTree = "<group>";
@@ -141,6 +149,7 @@
 		B3FFFF47185E0B390008EC39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84EF79EB1901E67100D9089B /* AudioToolbox.framework */,
 				B33E33B6185E27E0005962B9 /* Speex.framework */,
 				B3FFFF48185E0B390008EC39 /* Foundation.framework */,
 				B3FFFF4A185E0B390008EC39 /* CoreGraphics.framework */,
@@ -294,7 +303,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3FFFF5F185E0B390008EC39 /* ViewController.m in Sources */,
-				B33E33B3185E27C5005962B9 /* SpeechToTextModule.m in Sources */,
+				84EF79E91901DB3D00D9089B /* SpeechTranscriber.m in Sources */,
+				84EF79EF1901E74400D9089B /* AQRecorderState.m in Sources */,
 				B33E33B4185E27C5005962B9 /* SineWaveViewController.m in Sources */,
 				B33E33B5185E27C5005962B9 /* WaveDisplay.m in Sources */,
 				B3FFFF59185E0B390008EC39 /* AppDelegate.m in Sources */,
@@ -307,9 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EF79E61901D6F800D9089B /* ViewController.m in Sources */,
+				84EF79EA1901E63F00D9089B /* SpeechTranscriber.m in Sources */,
 				B3FFFF74185E0B3A0008EC39 /* SpeechToTextDemoTests.m in Sources */,
 				84EF79E41901D6F200D9089B /* WaveDisplay.m in Sources */,
-				84EF79E21901D6EC00D9089B /* SpeechToTextModule.m in Sources */,
 				84EF79E31901D6EE00D9089B /* SineWaveViewController.m in Sources */,
 				84EF79E51901D6F600D9089B /* AppDelegate.m in Sources */,
 			);

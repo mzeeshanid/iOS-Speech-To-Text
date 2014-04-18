@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SineWaveViewController.h"
 
 @interface ViewController ()
 {
@@ -24,7 +25,8 @@
     [fakeTextField setHidden:YES];
     [self.view addSubview:fakeTextField];
     
-    self.speechToTextObj = [[SpeechToTextModule alloc] initWithCustomDisplay:@"SineWaveViewController"];
+    //self.speechToTextObj = [[SpeechToTextModule alloc] initWithCustomDisplay:@"SineWaveViewController"];
+    self.speechToTextObj = [SpeechTranscriber new];
     [self.speechToTextObj setDelegate:self];
 }
 
