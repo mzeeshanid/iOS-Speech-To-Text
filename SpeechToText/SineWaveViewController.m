@@ -7,7 +7,7 @@
 //
 
 #import "SineWaveViewController.h"
-#import "SpeechToTextModule.h"
+#import "SpeechTranscriber.h"
 
 @interface SineWaveViewController ()
 

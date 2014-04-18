@@ -12,6 +12,8 @@
 #import "SineWaveViewController.h"
 
 static const NSInteger FRAME_SIZE = 110;
+static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US";
+
 
 @interface SpeechTranscriber () <SineWaveViewDelegate>
 @property (nonatomic, strong) NSTimer *meterTimer;
@@ -205,7 +207,7 @@ static const NSInteger FRAME_SIZE = 110;
     UInt32 ioDataSize = sizeof(AudioQueueLevelMeterState);
     AudioQueueGetProperty(self.aqData->mQueue, kAudioQueueProperty_CurrentLevelMeter, &meterState, &ioDataSize);
     AudioQueueGetProperty(self.aqData->mQueue, kAudioQueueProperty_CurrentLevelMeterDB, &meterStateDB, &ioDataSize);
-    
+    NSLog(@"Current Meter DB: %f", meterStateDB.mAveragePower);
     [self.volumeDataPoints removeObjectAtIndex:0];
     float dataPoint;
     
@@ -233,32 +235,41 @@ static const NSInteger FRAME_SIZE = 110;
 }
 
 - (void)postByteData:(NSData *)byteData {
-#warning TODO: update networking to use NSURLSession
-    NSURL *url = [NSURL URLWithString:@"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    if ([self.processingThread isCancelled]) {
+        [self cleanUpProcessingThread];
+        return;
+    }
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+
+    NSURL *url = [NSURL URLWithString:kWebSpeechAPI];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:byteData];
     [request addValue:@"audio/x-speex-with-header-byte; rate=16000" forHTTPHeaderField:@"Content-Type"];
-    [request setURL:url];
     [request setTimeoutInterval:15];
-    NSURLResponse *response;
-    NSError *error = nil;
     
-    if ([self.processingThread isCancelled]) {
-        [self cleanUpProcessingThread];
-        return;
-    }
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    if(error)
-        [self requestFailed:error];
-    
-    if ([self.processingThread isCancelled]) {
-        [self cleanUpProcessingThread];
-        return;
-    }
-    
-    [self performSelectorOnMainThread:@selector(gotResponse:) withObject:data waitUntilDone:NO];
+    __weak SpeechTranscriber *weakSelf = self;
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error) {
+            [self requestFailed:error];
+        }
+        else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf gotResponse:data];
+            });
+        }
+        
+        if ([self.processingThread isCancelled]) {
+            [self cleanUpProcessingThread];
+            return;
+        }
+        
+    }];
+    [dataTask resume];
 }
 
 - (void)gotResponse:(NSData *)jsonData {

@@ -7,7 +7,7 @@
 //
 
 #import "WaveDisplay.h"
-#import "SpeechToTextModule.h"
+#import "SpeechTranscriber.h"
 
 @implementation WaveDisplay
 
