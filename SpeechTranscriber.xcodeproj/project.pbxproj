@@ -40,17 +40,17 @@
 		84EF79F01901ECB400D9089B /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = ../SpeechToText/DemoViewController.h; sourceTree = "<group>"; };
 		84EF79F11901ECB400D9089B /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoViewController.m; path = ../SpeechToText/DemoViewController.m; sourceTree = "<group>"; };
 		B33E33B6185E27E0005962B9 /* Speex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speex.framework; path = SpeechToText/Speex.framework; sourceTree = "<group>"; };
-		B3FFFF45185E0B390008EC39 /* SpeechToTextDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechToTextDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3FFFF50185E0B390008EC39 /* SpeechToTextDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeechToTextDemo-Info.plist"; sourceTree = "<group>"; };
+		B3FFFF45185E0B390008EC39 /* SpeechTranscriber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechTranscriber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3FFFF50185E0B390008EC39 /* SpeechTranscriber-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeechTranscriber-Info.plist"; sourceTree = "<group>"; };
 		B3FFFF52185E0B390008EC39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3FFFF54185E0B390008EC39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B3FFFF56185E0B390008EC39 /* SpeechToTextDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeechToTextDemo-Prefix.pch"; sourceTree = "<group>"; };
+		B3FFFF56185E0B390008EC39 /* SpeechTranscriber-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeechTranscriber-Prefix.pch"; sourceTree = "<group>"; };
 		B3FFFF57185E0B390008EC39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B3FFFF58185E0B390008EC39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B3FFFF5B185E0B390008EC39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3FFFF60185E0B390008EC39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B3FFFF66185E0B3A0008EC39 /* SpeechToTextDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechToTextDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3FFFF6F185E0B3A0008EC39 /* SpeechToTextDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeechToTextDemoTests-Info.plist"; sourceTree = "<group>"; };
+		B3FFFF66185E0B3A0008EC39 /* SpeechTranscriberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechTranscriberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3FFFF6F185E0B3A0008EC39 /* SpeechTranscriberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeechTranscriberTests-Info.plist"; sourceTree = "<group>"; };
 		B3FFFF71185E0B3A0008EC39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3FFFF73185E0B3A0008EC39 /* SpeechToTextDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeechToTextDemoTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,8 +99,8 @@
 		B3FFFF46185E0B390008EC39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3FFFF45185E0B390008EC39 /* SpeechToTextDemo.app */,
-				B3FFFF66185E0B3A0008EC39 /* SpeechToTextDemoTests.xctest */,
+				B3FFFF45185E0B390008EC39 /* SpeechTranscriber.app */,
+				B3FFFF66185E0B3A0008EC39 /* SpeechTranscriberTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,10 +130,10 @@
 		B3FFFF4F185E0B390008EC39 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B3FFFF50185E0B390008EC39 /* SpeechToTextDemo-Info.plist */,
+				B3FFFF50185E0B390008EC39 /* SpeechTranscriber-Info.plist */,
 				B3FFFF51185E0B390008EC39 /* InfoPlist.strings */,
 				B3FFFF54185E0B390008EC39 /* main.m */,
-				B3FFFF56185E0B390008EC39 /* SpeechToTextDemo-Prefix.pch */,
+				B3FFFF56185E0B390008EC39 /* SpeechTranscriber-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -150,7 +150,7 @@
 		B3FFFF6E185E0B3A0008EC39 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B3FFFF6F185E0B3A0008EC39 /* SpeechToTextDemoTests-Info.plist */,
+				B3FFFF6F185E0B3A0008EC39 /* SpeechTranscriberTests-Info.plist */,
 				B3FFFF70185E0B3A0008EC39 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -159,9 +159,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B3FFFF44185E0B390008EC39 /* SpeechToTextDemo */ = {
+		B3FFFF44185E0B390008EC39 /* SpeechTranscriber */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3FFFF77185E0B3A0008EC39 /* Build configuration list for PBXNativeTarget "SpeechToTextDemo" */;
+			buildConfigurationList = B3FFFF77185E0B3A0008EC39 /* Build configuration list for PBXNativeTarget "SpeechTranscriber" */;
 			buildPhases = (
 				B3FFFF41185E0B390008EC39 /* Sources */,
 				B3FFFF42185E0B390008EC39 /* Frameworks */,
@@ -171,14 +171,14 @@
 			);
 			dependencies = (
 			);
-			name = SpeechToTextDemo;
+			name = SpeechTranscriber;
 			productName = SpeechToTextDemo;
-			productReference = B3FFFF45185E0B390008EC39 /* SpeechToTextDemo.app */;
+			productReference = B3FFFF45185E0B390008EC39 /* SpeechTranscriber.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B3FFFF65185E0B3A0008EC39 /* SpeechToTextDemoTests */ = {
+		B3FFFF65185E0B3A0008EC39 /* SpeechTranscriberTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3FFFF7A185E0B3A0008EC39 /* Build configuration list for PBXNativeTarget "SpeechToTextDemoTests" */;
+			buildConfigurationList = B3FFFF7A185E0B3A0008EC39 /* Build configuration list for PBXNativeTarget "SpeechTranscriberTests" */;
 			buildPhases = (
 				B3FFFF62185E0B3A0008EC39 /* Sources */,
 				B3FFFF63185E0B3A0008EC39 /* Frameworks */,
@@ -189,9 +189,9 @@
 			dependencies = (
 				B3FFFF6C185E0B3A0008EC39 /* PBXTargetDependency */,
 			);
-			name = SpeechToTextDemoTests;
+			name = SpeechTranscriberTests;
 			productName = SpeechToTextDemoTests;
-			productReference = B3FFFF66185E0B3A0008EC39 /* SpeechToTextDemoTests.xctest */;
+			productReference = B3FFFF66185E0B3A0008EC39 /* SpeechTranscriberTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B3FFFF40185E0B390008EC39 /* Build configuration list for PBXProject "SpeechToTextDemo" */;
+			buildConfigurationList = B3FFFF40185E0B390008EC39 /* Build configuration list for PBXProject "SpeechTranscriber" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -221,8 +221,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B3FFFF44185E0B390008EC39 /* SpeechToTextDemo */,
-				B3FFFF65185E0B3A0008EC39 /* SpeechToTextDemoTests */,
+				B3FFFF44185E0B390008EC39 /* SpeechTranscriber */,
+				B3FFFF65185E0B3A0008EC39 /* SpeechTranscriberTests */,
 			);
 		};
 /* End PBXProject section */
@@ -276,7 +276,7 @@
 /* Begin PBXTargetDependency section */
 		B3FFFF6C185E0B3A0008EC39 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B3FFFF44185E0B390008EC39 /* SpeechToTextDemo */;
+			target = B3FFFF44185E0B390008EC39 /* SpeechTranscriber */;
 			targetProxy = B3FFFF6B185E0B3A0008EC39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -389,16 +389,16 @@
 					"$(SOURCE_ROOT)/SpeechToText",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpeechToTextDemo/SpeechToTextDemo-Prefix.pch";
+				GCC_PREFIX_HEADER = "SpeechToTextDemo/SpeechTranscriber-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = "SpeechToTextDemo/SpeechToTextDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INFOPLIST_FILE = "SpeechToTextDemo/SpeechTranscriber-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpeechTranscriber;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -414,16 +414,16 @@
 					"$(SOURCE_ROOT)/SpeechToText",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpeechToTextDemo/SpeechToTextDemo-Prefix.pch";
+				GCC_PREFIX_HEADER = "SpeechToTextDemo/SpeechTranscriber-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = "SpeechToTextDemo/SpeechToTextDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INFOPLIST_FILE = "SpeechToTextDemo/SpeechTranscriber-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpeechTranscriber;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -444,8 +444,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SpeechToTextDemoTests/SpeechToTextDemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "SpeechToTextDemoTests/SpeechTranscriberTests-Info.plist";
+				PRODUCT_NAME = SpeechTranscriberTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -462,8 +462,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpeechToTextDemo/SpeechToTextDemo-Prefix.pch";
-				INFOPLIST_FILE = "SpeechToTextDemoTests/SpeechToTextDemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "SpeechToTextDemoTests/SpeechTranscriberTests-Info.plist";
+				PRODUCT_NAME = SpeechTranscriberTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -472,7 +472,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B3FFFF40185E0B390008EC39 /* Build configuration list for PBXProject "SpeechToTextDemo" */ = {
+		B3FFFF40185E0B390008EC39 /* Build configuration list for PBXProject "SpeechTranscriber" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3FFFF75185E0B3A0008EC39 /* Debug */,
@@ -481,7 +481,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3FFFF77185E0B3A0008EC39 /* Build configuration list for PBXNativeTarget "SpeechToTextDemo" */ = {
+		B3FFFF77185E0B3A0008EC39 /* Build configuration list for PBXNativeTarget "SpeechTranscriber" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3FFFF78185E0B3A0008EC39 /* Debug */,
@@ -490,7 +490,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3FFFF7A185E0B3A0008EC39 /* Build configuration list for PBXNativeTarget "SpeechToTextDemoTests" */ = {
+		B3FFFF7A185E0B3A0008EC39 /* Build configuration list for PBXNativeTarget "SpeechTranscriberTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3FFFF7B185E0B3A0008EC39 /* Debug */,
