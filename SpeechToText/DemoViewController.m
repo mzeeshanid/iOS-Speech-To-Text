@@ -12,7 +12,7 @@
 // Models
 #import "SpeechTranscriber.h"
 
-@interface DemoViewController () <SpeechTranscriberDelegate>
+@interface DemoViewController () <SpeechTranscriberDelegate, SpeechTranscriberDataPointsDelegate>
 @property (nonatomic, weak) IBOutlet UIButton *transcribeButton;
 @property (nonatomic, weak) IBOutlet UILabel *textLabel;
 @property (nonatomic, strong) SpeechTranscriber *transcriber;
@@ -30,7 +30,7 @@
     
     self.transcriber = [SpeechTranscriber new];
     self.transcriber.delegate = self;
-    
+    self.transcriber.dataPointsDelegate = self;
     return self;
 }
 
@@ -56,6 +56,11 @@
     self.textLabel.text = transcribedText;
     
     return response != nil;
+}
+
+#pragma mark - Speech Transcriber Data Points Delegate
+-(void)speechTranscriber:(SpeechTranscriber *)transcriber receivedSpeechData:(SpeechData)data {
+    NSLog(@"Loudness: %f", data.loudness);
 }
 
 @end

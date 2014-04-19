@@ -186,7 +186,7 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     UInt32 ioDataSize = sizeof(AudioQueueLevelMeterState);
     AudioQueueGetProperty(self.aqData->mQueue, kAudioQueueProperty_CurrentLevelMeter, &meterState, &ioDataSize);
     AudioQueueGetProperty(self.aqData->mQueue, kAudioQueueProperty_CurrentLevelMeterDB, &meterStateDB, &ioDataSize);
-    NSLog(@"Current Meter DB: %f", meterStateDB.mAveragePower);
+
     [self.volumeDataPoints removeObjectAtIndex:0];
     float dataPoint;
     
@@ -198,7 +198,11 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     }
     [self.volumeDataPoints addObject:[NSNumber numberWithFloat:dataPoint]];
     
-#warning TODO: add speech data
+    if (self.dataPointsDelegate &&
+        [self.dataPointsDelegate respondsToSelector:@selector(speechTranscriber:receivedSpeechData:)]) {
+        [self.dataPointsDelegate speechTranscriber:self receivedSpeechData:j_speechDataMake(dataPoint)];
+    }
+    
     if (self.detectedSpeech) {
         
         if (meterStateDB.mAveragePower < kSilenceThresholdDB) {

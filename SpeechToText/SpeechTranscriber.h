@@ -49,6 +49,7 @@ typedef struct {
 // Delegate can subscribe to additional data concerning speech input (loudness, etc)
 //
 @protocol SpeechTranscriberDataPointsDelegate <NSObject>
+@optional
 - (void)speechTranscriber:(SpeechTranscriber *)transcriber receivedSpeechData:(SpeechData)data;
 @end
 
