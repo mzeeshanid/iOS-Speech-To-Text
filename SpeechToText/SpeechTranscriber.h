@@ -16,9 +16,12 @@ static const CGFloat kSilenceThresholdNumSamples = (kSilenceTimeThreshold / kVol
 static const CGFloat kMinVolumeSampleValue = 0.01;
 static const CGFloat kMaxVolumeSampleValue = 1.0;
 
+typedef struct {
+    CGFloat loudness;
+}SpeechData;
+
 @class SineWaveViewController;
 @class SpeechTranscriber;
-@class SpeechData;
 
 @import Foundation;
 @import AudioToolbox;
@@ -46,7 +49,7 @@ static const CGFloat kMaxVolumeSampleValue = 1.0;
 // Delegate can subscribe to additional data concerning speech input (loudness, etc)
 //
 @protocol SpeechTranscriberDataPointsDelegate <NSObject>
-- (void)speechTranscriber:(SpeechTranscriber *)transcriber receivedSpeechData:(SpeechData *)data;
+- (void)speechTranscriber:(SpeechTranscriber *)transcriber receivedSpeechData:(SpeechData)data;
 @end
 
 

@@ -8,7 +8,6 @@
 
 // Models
 #import "SpeechTranscriber.h"
-#import "SpeechData.h"
 
 static const NSInteger FRAME_SIZE = 110;
 static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US";
@@ -16,7 +15,6 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
 @interface SpeechTranscriber ()
 
 // Models
-@property (nonatomic, strong) SpeechData *speechData;;
 @property (nonatomic, strong) NSMutableArray *volumeDataPoints;
 @property (nonatomic, strong) NSThread *processingThread;
 
@@ -115,7 +113,6 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     for (int i = 0; i < kNumVolumeSamples; i++) {
         [self.volumeDataPoints addObject:[NSNumber numberWithFloat:kMinVolumeSampleValue]];
     }
-#warning TODO: add speech data
 }
 
 #pragma mark - Public
@@ -237,18 +234,18 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
         
         if (error) {
             
-            if ([self.delegate respondsToSelector:@selector(speechTranscriberRquestFailedWithError:)])
-                [self.delegate speechTranscriberRquestFailedWithError:error];
+            if ([weakSelf.delegate respondsToSelector:@selector(speechTranscriberRquestFailedWithError:)])
+                [weakSelf.delegate speechTranscriberRquestFailedWithError:error];
         }
         else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self j_cleanUpProcessingThread];
-                [self.delegate speechTranscriberDidReceiveVoiceResponse:data];
+                [weakSelf j_cleanUpProcessingThread];
+                [weakSelf.delegate speechTranscriberDidReceiveVoiceResponse:data];
             });
         }
         
-        if ([self.processingThread isCancelled]) {
-            [self j_cleanUpProcessingThread];
+        if ([weakSelf.processingThread isCancelled]) {
+            [weakSelf j_cleanUpProcessingThread];
             return;
         }
         
@@ -257,6 +254,14 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
 }
 
 #pragma mark - C Helpers
+static SpeechData j_speechDataMake(CGFloat loudness) {
+    SpeechData data = {
+        .loudness = loudness
+    };
+    
+    return data;
+}
+
 static void j_handleInputBuffer (void *aqData, AudioQueueRef inAQ, AudioQueueBufferRef inBuffer,
                                const AudioTimeStamp *inStartTime, UInt32 inNumPackets,
                                const AudioStreamPacketDescription *inPacketDesc) {
