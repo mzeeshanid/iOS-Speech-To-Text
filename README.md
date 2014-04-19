@@ -13,7 +13,7 @@ This project was forked from: https://github.com/mzeeshanid
 - Set delegate and optional data points delegate
 - Call `startRecording` and `stopRecording`
 
-```
+```Objective-C
     self.transcriber = [SpeechTranscriber new];
     self.transcriber.delegate = self;
     self.transcriber.dataPointsDelegate = self;
