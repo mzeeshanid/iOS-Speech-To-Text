@@ -76,7 +76,7 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     [self.processingThread cancel];
     
     if (self.processing) {
-        [self cleanUpProcessingThread];
+        [self j_cleanUpProcessingThread];
     }
     speex_bits_destroy(&(self.aqData->speex_bits));
     speex_encoder_destroy(self.aqData->speex_enc_state);
@@ -84,7 +84,7 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     AudioQueueDispose(self.aqData->mQueue, true);
 }
 
-#pragma mark -
+#pragma mark - Reset
 -(void)reset {
     if (self.aqData->mQueue != NULL)
         AudioQueueDispose(self.aqData->mQueue, true);
@@ -95,9 +95,9 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     AudioSessionSetActive(true);
     
     UInt32 enableLevelMetering = 1;
-    AudioQueueNewInput(&(self.aqData->mDataFormat), HandleInputBuffer, (__bridge void *)(self.aqData), NULL, kCFRunLoopCommonModes, 0, &(self.aqData->mQueue));
+    AudioQueueNewInput(&(self.aqData->mDataFormat), j_handleInputBuffer, (__bridge void *)(self.aqData), NULL, kCFRunLoopCommonModes, 0, &(self.aqData->mQueue));
     AudioQueueSetProperty(self.aqData->mQueue, kAudioQueueProperty_EnableLevelMetering, &enableLevelMetering, sizeof(UInt32));
-    DeriveBufferSize(self.aqData->mQueue, &(self.aqData->mDataFormat), 0.5, &(self.aqData->bufferByteSize));
+    j_deriveBufferSize(self.aqData->mQueue, &(self.aqData->mDataFormat), 0.5, &(self.aqData->bufferByteSize));
     
     for (int i = 0; i < kNumberBuffers; i++) {
         AudioQueueAllocateBuffer(self.aqData->mQueue, self.aqData->bufferByteSize, &(self.aqData->mBuffers[i]));
@@ -128,21 +128,21 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
             AudioQueueStart(self.aqData->mQueue, NULL);
             self.meterTimer = [NSTimer scheduledTimerWithTimeInterval:kVolumeSamplingInterval
                                                                 target:self
-                                                              selector:@selector(checkMeter) userInfo:nil repeats:YES];
+                                                              selector:@selector(j_checkMeter) userInfo:nil repeats:YES];
         }
     }
 }
 
 -(void)stopRecording {
     if (self.recording) {
-        [self stopRecording:YES];
+        [self j_stopRecording:YES];
     }
 }
 
 -(void)cancelRecording {
     
     if (self.recording) {
-        [self stopRecording:NO];
+        [self j_stopRecording:NO];
     } else {
         if (self.processing) {
             [self.processingThread cancel];
@@ -153,14 +153,14 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
 
 #pragma mark - Private
 
-- (void)cleanUpProcessingThread {
+- (void)j_cleanUpProcessingThread {
     @synchronized(self) {
         self.processingThread = nil;
         self.processing = NO;
     }
 }
 
-- (void)stopRecording:(BOOL)startProcessing {
+- (void)j_stopRecording:(BOOL)startProcessing {
     
     @synchronized(self) {
         
@@ -171,9 +171,9 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
             self.meterTimer = nil;
             
             if (startProcessing) {
-                [self cleanUpProcessingThread];
+                [self j_cleanUpProcessingThread];
                 self.processing = YES;
-                self.processingThread = [[NSThread alloc] initWithTarget:self selector:@selector(postByteData:) object:self.aqData->encodedSpeexData];
+                self.processingThread = [[NSThread alloc] initWithTarget:self selector:@selector(j_postByteData:) object:self.aqData->encodedSpeexData];
                 [self.processingThread start];
                 
                 if ([self.delegate respondsToSelector:@selector(speechTranscriberShowLoadingView)])
@@ -183,7 +183,7 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     }
 }
 
-- (void)checkMeter {
+- (void)j_checkMeter {
     AudioQueueLevelMeterState meterState;
     AudioQueueLevelMeterState meterStateDB;
     UInt32 ioDataSize = sizeof(AudioQueueLevelMeterState);
@@ -208,17 +208,17 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
             self.samplesBelowSilence++;
             
             if (self.samplesBelowSilence > kSilenceThresholdNumSamples)
-                [self stopRecording:YES];
+                [self j_stopRecording:YES];
         } else {
             self.samplesBelowSilence = 0;
         }
     }
 }
 
-- (void)postByteData:(NSData *)byteData {
+- (void)j_postByteData:(NSData *)byteData {
     
     if ([self.processingThread isCancelled]) {
-        [self cleanUpProcessingThread];
+        [self j_cleanUpProcessingThread];
         return;
     }
     
@@ -236,16 +236,19 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if (error) {
-            [self requestFailed:error];
+            
+            if ([self.delegate respondsToSelector:@selector(speechTranscriberRquestFailedWithError:)])
+                [self.delegate speechTranscriberRquestFailedWithError:error];
         }
         else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf gotResponse:data];
+                [self j_cleanUpProcessingThread];
+                [self.delegate speechTranscriberDidReceiveVoiceResponse:data];
             });
         }
         
         if ([self.processingThread isCancelled]) {
-            [self cleanUpProcessingThread];
+            [self j_cleanUpProcessingThread];
             return;
         }
         
@@ -253,18 +256,8 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     [dataTask resume];
 }
 
-- (void)gotResponse:(NSData *)jsonData {
-    [self cleanUpProcessingThread];
-    [self.delegate speechTranscriberDidReceiveVoiceResponse:jsonData];
-}
-
-- (void)requestFailed:(NSError *)error {
-    if([self.delegate respondsToSelector:@selector(speechTranscriberRquestFailedWithError:)])
-        [self.delegate speechTranscriberRquestFailedWithError:error];
-}
-
 #pragma mark - C Helpers
-static void HandleInputBuffer (void *aqData, AudioQueueRef inAQ, AudioQueueBufferRef inBuffer,
+static void j_handleInputBuffer (void *aqData, AudioQueueRef inAQ, AudioQueueBufferRef inBuffer,
                                const AudioTimeStamp *inStartTime, UInt32 inNumPackets,
                                const AudioStreamPacketDescription *inPacketDesc) {
     
@@ -294,7 +287,7 @@ static void HandleInputBuffer (void *aqData, AudioQueueRef inAQ, AudioQueueBuffe
     AudioQueueEnqueueBuffer(pAqData->mQueue, inBuffer, 0, NULL);
 }
 
-static void DeriveBufferSize (AudioQueueRef audioQueue, AudioStreamBasicDescription *ASBDescription, Float64 seconds, UInt32 *outBufferSize) {
+static void j_deriveBufferSize (AudioQueueRef audioQueue, AudioStreamBasicDescription *ASBDescription, Float64 seconds, UInt32 *outBufferSize) {
     static const int maxBufferSize = 0x50000;
     
     int maxPacketSize = ASBDescription->mBytesPerPacket;
