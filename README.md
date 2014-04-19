@@ -1,13 +1,11 @@
-#iOS-Speech-To-Text
+iOS-Speech-To-Text
 ==================
 
 This library uses the Google Voice API and the Speex audio codec for speech-to-text on iOS 
 
 This project was forked from: https://github.com/mzeeshanid
 
-==================
-
-#Usage
+Usage
 ==================
 - Create an instance of `SpeechTranscriber`
 - Set delegate and optional data points delegate
@@ -28,3 +26,8 @@ This project was forked from: https://github.com/mzeeshanid
 }
 
 ```
+Goals
+=================
+- Add more interesting delegates
+- Update code to use the new AVAudioSession
+- Increase ease of use
