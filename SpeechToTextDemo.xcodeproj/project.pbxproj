@@ -15,6 +15,8 @@
 		84EF79EA1901E63F00D9089B /* SpeechTranscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */; };
 		84EF79EC1901E67100D9089B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EF79EB1901E67100D9089B /* AudioToolbox.framework */; };
 		84EF79EF1901E74400D9089B /* AQRecorderState.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79EE1901E74400D9089B /* AQRecorderState.m */; };
+		84EF79F21901ECB400D9089B /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79F11901ECB400D9089B /* DemoViewController.m */; };
+		84EF79F51901F4CD00D9089B /* SpeechData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79F41901F4CD00D9089B /* SpeechData.m */; };
 		8B013A51186119F4002D16EC /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B013A50186119F4002D16EC /* bg.png */; };
 		8B013A5318611A50002D16EC /* mic.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B013A5218611A50002D16EC /* mic.png */; };
 		B33E33B4185E27C5005962B9 /* SineWaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E33B0185E27C5005962B9 /* SineWaveViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -53,6 +55,10 @@
 		84EF79EB1901E67100D9089B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		84EF79ED1901E74400D9089B /* AQRecorderState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQRecorderState.h; sourceTree = "<group>"; };
 		84EF79EE1901E74400D9089B /* AQRecorderState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQRecorderState.m; sourceTree = "<group>"; };
+		84EF79F01901ECB400D9089B /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = ../SpeechToText/DemoViewController.h; sourceTree = "<group>"; };
+		84EF79F11901ECB400D9089B /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoViewController.m; path = ../SpeechToText/DemoViewController.m; sourceTree = "<group>"; };
+		84EF79F31901F4CD00D9089B /* SpeechData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechData.h; sourceTree = "<group>"; };
+		84EF79F41901F4CD00D9089B /* SpeechData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechData.m; sourceTree = "<group>"; };
 		8B013A50186119F4002D16EC /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		8B013A5218611A50002D16EC /* mic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic.png; sourceTree = "<group>"; };
 		B33E33AF185E27C5005962B9 /* SineWaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveViewController.h; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 				B33E33B2185E27C5005962B9 /* WaveDisplay.m */,
 				84EF79ED1901E74400D9089B /* AQRecorderState.h */,
 				84EF79EE1901E74400D9089B /* AQRecorderState.m */,
+				84EF79F31901F4CD00D9089B /* SpeechData.h */,
+				84EF79F41901F4CD00D9089B /* SpeechData.m */,
 			);
 			path = SpeechToText;
 			sourceTree = "<group>";
@@ -162,6 +170,8 @@
 		B3FFFF4E185E0B390008EC39 /* SpeechToTextDemo */ = {
 			isa = PBXGroup;
 			children = (
+				84EF79F01901ECB400D9089B /* DemoViewController.h */,
+				84EF79F11901ECB400D9089B /* DemoViewController.m */,
 				B3FFFF57185E0B390008EC39 /* AppDelegate.h */,
 				B3FFFF58185E0B390008EC39 /* AppDelegate.m */,
 				B3FFFF5A185E0B390008EC39 /* Main.storyboard */,
@@ -305,6 +315,8 @@
 				B3FFFF5F185E0B390008EC39 /* ViewController.m in Sources */,
 				84EF79E91901DB3D00D9089B /* SpeechTranscriber.m in Sources */,
 				84EF79EF1901E74400D9089B /* AQRecorderState.m in Sources */,
+				84EF79F21901ECB400D9089B /* DemoViewController.m in Sources */,
+				84EF79F51901F4CD00D9089B /* SpeechData.m in Sources */,
 				B33E33B4185E27C5005962B9 /* SineWaveViewController.m in Sources */,
 				B33E33B5185E27C5005962B9 /* WaveDisplay.m in Sources */,
 				B3FFFF59185E0B390008EC39 /* AppDelegate.m in Sources */,

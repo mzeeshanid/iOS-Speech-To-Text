@@ -3,27 +3,30 @@
 //  SpeechToTextDemo
 //
 //  Created by admin on 4/18/14.
-//  Copyright (c) 2014 Muhammad Zeeshan. All rights reserved.
+//  Copyright (c) 2014 James Smith. All rights reserved.
 //
 
+// Models
 #import "SpeechTranscriber.h"
-
-// Controllers
-#import "SineWaveViewController.h"
+#import "SpeechData.h"
 
 static const NSInteger FRAME_SIZE = 110;
 static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US";
 
+@interface SpeechTranscriber ()
 
-@interface SpeechTranscriber () <SineWaveViewDelegate>
-@property (nonatomic, strong) NSTimer *meterTimer;
-@property (nonatomic, assign) NSInteger samplesBelowSilence;
+// Models
+@property (nonatomic, strong) SpeechData *speechData;;
+@property (nonatomic, strong) NSMutableArray *volumeDataPoints;
+@property (nonatomic, strong) NSThread *processingThread;
+
+// Switches
 @property (nonatomic, assign) BOOL detectedSpeech;
 @property (nonatomic, assign) BOOL processing;
 
-@property (nonatomic, strong) NSMutableArray *volumeDataPoints;
-@property (nonatomic, strong) SineWaveViewController *sineWave;
-@property (nonatomic, strong) NSThread *processingThread;
+// Other
+@property (nonatomic, strong) NSTimer *meterTimer;
+@property (nonatomic, assign) NSInteger samplesBelowSilence;
 
 @end
 
@@ -64,9 +67,6 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     speex_encoder_ctl(self.aqData->speex_enc_state, SPEEX_GET_FRAME_SIZE, &(self.aqData->speex_samples_per_frame));
     self.aqData->mQueue = NULL;
     
-    self.sineWave = [[SineWaveViewController alloc] initWithNibName:@"SineWaveViewController" bundle:nil];
-    self.sineWave.delegate = self;
-    
     [self reset];
     
     return self;
@@ -74,13 +74,10 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
 
 - (void)dealloc {
     [self.processingThread cancel];
+    
     if (self.processing) {
         [self cleanUpProcessingThread];
     }
-    
-    self.delegate = nil;
-    self.sineWave.delegate = nil;
-
     speex_bits_destroy(&(self.aqData->speex_bits));
     speex_encoder_destroy(self.aqData->speex_enc_state);
 
@@ -118,9 +115,10 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     for (int i = 0; i < kNumVolumeSamples; i++) {
         [self.volumeDataPoints addObject:[NSNumber numberWithFloat:kMinVolumeSampleValue]];
     }
-    self.sineWave.dataPoints = self.volumeDataPoints;
+#warning TODO: add speech data
 }
 
+#pragma mark - Public
 - (void)beginRecording {
     @synchronized(self) {
         if (!self.recording && !self.processing) {
@@ -128,14 +126,6 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
             self.aqData->mIsRunning = true;
             [self reset];
             AudioQueueStart(self.aqData->mQueue, NULL);
-            
-            
-            if (self.sineWave && [self.delegate respondsToSelector:@selector(showSineWaveView:)]) {
-                [self.delegate showSineWaveView:self.sineWave];
-            } /*else {
-                status = [[UIAlertView alloc] initWithTitle:@"Speak now!" message:@"" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
-                [status show];
-            }*/
             self.meterTimer = [NSTimer scheduledTimerWithTimeInterval:kVolumeSamplingInterval
                                                                 target:self
                                                               selector:@selector(checkMeter) userInfo:nil repeats:YES];
@@ -143,13 +133,25 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     }
 }
 
-- (void)sineWaveDoneAction {
-    if (self.recording)
+-(void)stopRecording {
+    if (self.recording) {
         [self stopRecording:YES];
-    else if ([self.delegate respondsToSelector:@selector(dismissSineWaveView:cancelled:)]) {
-        [self.delegate dismissSineWaveView:self.sineWave cancelled:NO];
     }
 }
+
+-(void)cancelRecording {
+    
+    if (self.recording) {
+        [self stopRecording:NO];
+    } else {
+        if (self.processing) {
+            [self.processingThread cancel];
+            self.processing = NO;
+        }
+    }
+}
+
+#pragma mark - Private
 
 - (void)cleanUpProcessingThread {
     @synchronized(self) {
@@ -158,31 +160,11 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     }
 }
 
-- (void)sineWaveCancelAction {
-    if (self.recording) {
-        [self stopRecording:NO];
-    } else {
-        if (self.processing) {
-            [self.processingThread cancel];
-            self.processing = NO;
-        }
-        if ([self.delegate respondsToSelector:@selector(dismissSineWaveView:cancelled:)]) {
-            [self.delegate dismissSineWaveView:self.sineWave cancelled:YES];
-        }
-    }
-}
-
 - (void)stopRecording:(BOOL)startProcessing {
     
     @synchronized(self) {
         
         if (self.recording) {
-            //[status dismissWithClickedButtonIndex:-1 animated:YES];
-            //status = nil;
-            
-            if ([self.delegate respondsToSelector:@selector(dismissSineWaveView:cancelled:)])
-                [self.delegate dismissSineWaveView:self.sineWave cancelled:!startProcessing];
-            
             AudioQueueStop(self.aqData->mQueue, true);
             self.aqData->mIsRunning = false;
             [self.meterTimer invalidate];;
@@ -194,8 +176,8 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
                 self.processingThread = [[NSThread alloc] initWithTarget:self selector:@selector(postByteData:) object:self.aqData->encodedSpeexData];
                 [self.processingThread start];
                 
-                if ([self.delegate respondsToSelector:@selector(showLoadingView)])
-                    [self.delegate showLoadingView];
+                if ([self.delegate respondsToSelector:@selector(speechTranscriberShowLoadingView)])
+                    [self.delegate speechTranscriberShowLoadingView];
             }
         }
     }
@@ -219,8 +201,7 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     }
     [self.volumeDataPoints addObject:[NSNumber numberWithFloat:dataPoint]];
     
-    [self.sineWave updateWaveDisplay];
-    
+#warning TODO: add speech data
     if (self.detectedSpeech) {
         
         if (meterStateDB.mAveragePower < kSilenceThresholdDB) {
@@ -274,15 +255,13 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
 
 - (void)gotResponse:(NSData *)jsonData {
     [self cleanUpProcessingThread];
-    [self.delegate didReceiveVoiceResponse:jsonData];
+    [self.delegate speechTranscriberDidReceiveVoiceResponse:jsonData];
 }
 
-- (void)requestFailed:(NSError *)error
-{
-    if([self.delegate respondsToSelector:@selector(requestFailedWithError:)])
-        [self.delegate requestFailedWithError:error];
+- (void)requestFailed:(NSError *)error {
+    if([self.delegate respondsToSelector:@selector(speechTranscriberRquestFailedWithError:)])
+        [self.delegate speechTranscriberRquestFailedWithError:error];
 }
-
 
 #pragma mark - C Helpers
 static void HandleInputBuffer (void *aqData, AudioQueueRef inAQ, AudioQueueBufferRef inBuffer,
