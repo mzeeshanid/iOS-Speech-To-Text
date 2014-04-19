@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  DemoViewController.h
 //  SpeechToTextDemo
 //
 //  Created by admin on 4/18/14.
@@ -8,8 +8,6 @@
 
 @import UIKit;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface DemoViewController : UIViewController
 
 @end

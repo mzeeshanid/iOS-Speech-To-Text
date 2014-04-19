@@ -1,6 +1,33 @@
 iOS-Speech-To-Text
 ==================
 
-This library use the Google Voice API and the Speex audio codec for speech-to-text on iOS 
+This library uses the Google Voice API and the Speex audio codec for speech-to-text on iOS 
 
-For details see this blog post <a href="http://ideamakerz.com/mzeeshanid/ios-speech-to-text/">http://ideamakerz.com/mzeeshanid/ios-speech-to-text/</a>
+This project was forked from: https://github.com/mzeeshanid
+
+Usage
+==================
+- Create an instance of `SpeechTranscriber`
+- Set delegate and optional data points delegate
+- Call `startRecording` and `stopRecording`
+
+```Objective-C
+    self.transcriber = [SpeechTranscriber new];
+    self.transcriber.delegate = self;
+    self.transcriber.dataPointsDelegate = self;
+    
+    (...)
+    
+    -(BOOL)speechTranscriberDidReceiveVoiceResponse:(NSData *)data {
+      NSError *jsonError;
+      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments     error:&jsonError];
+      NSString *transcribedText = [response[@"hypotheses"] firstObject][@"utterance"];
+    return response != nil;
+}
+
+```
+Goals
+=================
+- Add more interesting delegates
+- Update code to use the new AVAudioSession
+- Increase ease of use
