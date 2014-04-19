@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Muhammad Zeeshan. All rights reserved.
 //
 
-#import <Speex/speex.h>
 @import Foundation;
 @import AudioToolbox;
+#import <Speex/speex.h>
 
 static const NSInteger kNumberBuffers = 3;
 
@@ -25,6 +25,5 @@ static const NSInteger kNumberBuffers = 3;
     void *speex_enc_state;
     int speex_samples_per_frame;
     NSMutableData *encodedSpeexData;
-    __weak id selfRef;
 }
 @end
