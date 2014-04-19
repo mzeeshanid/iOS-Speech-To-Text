@@ -11,7 +11,7 @@
 		84EF79E91901DB3D00D9089B /* SpeechTranscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */; };
 		84EF79EA1901E63F00D9089B /* SpeechTranscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */; };
 		84EF79EC1901E67100D9089B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EF79EB1901E67100D9089B /* AudioToolbox.framework */; };
-		84EF79EF1901E74400D9089B /* AQRecorderState.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79EE1901E74400D9089B /* AQRecorderState.m */; };
+		84EF79EF1901E74400D9089B /* SpeechRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79EE1901E74400D9089B /* SpeechRecorder.m */; };
 		84EF79F21901ECB400D9089B /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79F11901ECB400D9089B /* DemoViewController.m */; };
 		B33E33B7185E27E0005962B9 /* Speex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B33E33B6185E27E0005962B9 /* Speex.framework */; };
 		B3FFFF49185E0B390008EC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FFFF48185E0B390008EC39 /* Foundation.framework */; };
@@ -43,8 +43,8 @@
 		84EF79E71901DB3D00D9089B /* SpeechTranscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeechTranscriber.h; path = SpeechToText/SpeechTranscriber.h; sourceTree = "<group>"; };
 		84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeechTranscriber.m; path = SpeechToText/SpeechTranscriber.m; sourceTree = "<group>"; };
 		84EF79EB1901E67100D9089B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		84EF79ED1901E74400D9089B /* AQRecorderState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQRecorderState.h; sourceTree = "<group>"; };
-		84EF79EE1901E74400D9089B /* AQRecorderState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQRecorderState.m; sourceTree = "<group>"; };
+		84EF79ED1901E74400D9089B /* SpeechRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeechRecorder.h; path = SpeechToText/SpeechRecorder.h; sourceTree = "<group>"; };
+		84EF79EE1901E74400D9089B /* SpeechRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeechRecorder.m; path = SpeechToText/SpeechRecorder.m; sourceTree = "<group>"; };
 		84EF79F01901ECB400D9089B /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = ../SpeechToText/DemoViewController.h; sourceTree = "<group>"; };
 		84EF79F11901ECB400D9089B /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoViewController.m; path = ../SpeechToText/DemoViewController.m; sourceTree = "<group>"; };
 		B33E33B6185E27E0005962B9 /* Speex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speex.framework; path = SpeechToText/Speex.framework; sourceTree = "<group>"; };
@@ -98,24 +98,16 @@
 			children = (
 				84EF79E71901DB3D00D9089B /* SpeechTranscriber.h */,
 				84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */,
+				84EF79ED1901E74400D9089B /* SpeechRecorder.h */,
+				84EF79EE1901E74400D9089B /* SpeechRecorder.m */,
 			);
 			name = SpeechTranscriber;
-			sourceTree = "<group>";
-		};
-		B33E33AC185E27A7005962B9 /* SpeechToText */ = {
-			isa = PBXGroup;
-			children = (
-				84EF79ED1901E74400D9089B /* AQRecorderState.h */,
-				84EF79EE1901E74400D9089B /* AQRecorderState.m */,
-			);
-			path = SpeechToText;
 			sourceTree = "<group>";
 		};
 		B3FFFF3C185E0B390008EC39 = {
 			isa = PBXGroup;
 			children = (
 				84EF79F61901FB5300D9089B /* SpeechTranscriber */,
-				B33E33AC185E27A7005962B9 /* SpeechToText */,
 				B3FFFF4E185E0B390008EC39 /* SpeechToTextDemo */,
 				B3FFFF6D185E0B3A0008EC39 /* SpeechToTextDemoTests */,
 				B3FFFF47185E0B390008EC39 /* Frameworks */,
@@ -286,7 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EF79E91901DB3D00D9089B /* SpeechTranscriber.m in Sources */,
-				84EF79EF1901E74400D9089B /* AQRecorderState.m in Sources */,
+				84EF79EF1901E74400D9089B /* SpeechRecorder.m in Sources */,
 				84EF79F21901ECB400D9089B /* DemoViewController.m in Sources */,
 				B3FFFF59185E0B390008EC39 /* AppDelegate.m in Sources */,
 				B3FFFF55185E0B390008EC39 /* main.m in Sources */,

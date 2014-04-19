@@ -12,7 +12,7 @@
 
 static const NSInteger kNumberBuffers = 3;
 
-@interface AQRecorderState : NSObject {
+@interface SpeechRecorder : NSObject {
 @public
     AudioStreamBasicDescription mDataFormat;
     AudioQueueBufferRef mBuffers[kNumberBuffers];

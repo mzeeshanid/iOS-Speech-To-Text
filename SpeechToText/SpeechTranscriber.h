@@ -26,7 +26,7 @@ typedef struct {
 @import Foundation;
 @import AudioToolbox;
 #import <Speex/speex.h>
-#import "AQRecorderState.h"
+#import "SpeechRecorder.h"
 
 //
 // Speech Transcriber Delegate
@@ -58,7 +58,7 @@ typedef struct {
 // Speech Transcriber
 //
 @interface SpeechTranscriber : NSObject
-@property (nonatomic, strong) AQRecorderState *aqData;
+@property (nonatomic, strong) SpeechRecorder *aqData;
 @property (nonatomic, weak)id<SpeechTranscriberDelegate> delegate;
 @property (nonatomic, weak)id<SpeechTranscriberDataPointsDelegate> dataPointsDelegate;
 -(void)beginRecording;

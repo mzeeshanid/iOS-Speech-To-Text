@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Muhammad Zeeshan. All rights reserved.
 //
 
-#import "AQRecorderState.h"
+#import "SpeechRecorder.h"
 
-@implementation AQRecorderState
+@implementation SpeechRecorder
 
 @end

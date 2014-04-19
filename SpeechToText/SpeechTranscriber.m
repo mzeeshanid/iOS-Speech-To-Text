@@ -41,7 +41,7 @@ static NSString * const kWebSpeechAPI = @"https://www.google.com/speech-api/v1/r
     if ( !(self = [super init]) ) {
         return nil;
     }
-    self.aqData = [AQRecorderState new];
+    self.aqData = [SpeechRecorder new];
     self.aqData->mDataFormat.mFormatID = kAudioFormatLinearPCM;
     self.aqData->mDataFormat.mSampleRate = 16000.0;
     self.aqData->mDataFormat.mChannelsPerFrame = 1;
@@ -270,7 +270,7 @@ static void j_handleInputBuffer (void *aqData, AudioQueueRef inAQ, AudioQueueBuf
                                const AudioTimeStamp *inStartTime, UInt32 inNumPackets,
                                const AudioStreamPacketDescription *inPacketDesc) {
     
-    AQRecorderState *pAqData = (__bridge AQRecorderState *) aqData;
+    SpeechRecorder *pAqData = (__bridge SpeechRecorder *) aqData;
     
     if (inNumPackets == 0 && pAqData->mDataFormat.mBytesPerPacket != 0)
         inNumPackets = inBuffer->mAudioDataByteSize / pAqData->mDataFormat.mBytesPerPacket;
