@@ -10,21 +10,14 @@
 		84EF79E51901D6F600D9089B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FFFF58185E0B390008EC39 /* AppDelegate.m */; };
 		84EF79E91901DB3D00D9089B /* SpeechTranscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */; };
 		84EF79EA1901E63F00D9089B /* SpeechTranscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */; };
-		84EF79EC1901E67100D9089B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EF79EB1901E67100D9089B /* AudioToolbox.framework */; };
 		84EF79EF1901E74400D9089B /* SpeechRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79EE1901E74400D9089B /* SpeechRecorder.m */; };
 		84EF79F21901ECB400D9089B /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF79F11901ECB400D9089B /* DemoViewController.m */; };
 		B33E33B7185E27E0005962B9 /* Speex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B33E33B6185E27E0005962B9 /* Speex.framework */; };
-		B3FFFF49185E0B390008EC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FFFF48185E0B390008EC39 /* Foundation.framework */; };
-		B3FFFF4B185E0B390008EC39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FFFF4A185E0B390008EC39 /* CoreGraphics.framework */; };
-		B3FFFF4D185E0B390008EC39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FFFF4C185E0B390008EC39 /* UIKit.framework */; };
 		B3FFFF53185E0B390008EC39 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3FFFF51185E0B390008EC39 /* InfoPlist.strings */; };
 		B3FFFF55185E0B390008EC39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FFFF54185E0B390008EC39 /* main.m */; };
 		B3FFFF59185E0B390008EC39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FFFF58185E0B390008EC39 /* AppDelegate.m */; };
 		B3FFFF5C185E0B390008EC39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FFFF5A185E0B390008EC39 /* Main.storyboard */; };
 		B3FFFF61185E0B390008EC39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3FFFF60185E0B390008EC39 /* Images.xcassets */; };
-		B3FFFF68185E0B3A0008EC39 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FFFF67185E0B3A0008EC39 /* XCTest.framework */; };
-		B3FFFF69185E0B3A0008EC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FFFF48185E0B390008EC39 /* Foundation.framework */; };
-		B3FFFF6A185E0B3A0008EC39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FFFF4C185E0B390008EC39 /* UIKit.framework */; };
 		B3FFFF72185E0B3A0008EC39 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3FFFF70185E0B3A0008EC39 /* InfoPlist.strings */; };
 		B3FFFF74185E0B3A0008EC39 /* SpeechToTextDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FFFF73185E0B3A0008EC39 /* SpeechToTextDemoTests.m */; };
 /* End PBXBuildFile section */
@@ -42,16 +35,12 @@
 /* Begin PBXFileReference section */
 		84EF79E71901DB3D00D9089B /* SpeechTranscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeechTranscriber.h; path = SpeechToText/SpeechTranscriber.h; sourceTree = "<group>"; };
 		84EF79E81901DB3D00D9089B /* SpeechTranscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeechTranscriber.m; path = SpeechToText/SpeechTranscriber.m; sourceTree = "<group>"; };
-		84EF79EB1901E67100D9089B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		84EF79ED1901E74400D9089B /* SpeechRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeechRecorder.h; path = SpeechToText/SpeechRecorder.h; sourceTree = "<group>"; };
 		84EF79EE1901E74400D9089B /* SpeechRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeechRecorder.m; path = SpeechToText/SpeechRecorder.m; sourceTree = "<group>"; };
 		84EF79F01901ECB400D9089B /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = ../SpeechToText/DemoViewController.h; sourceTree = "<group>"; };
 		84EF79F11901ECB400D9089B /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoViewController.m; path = ../SpeechToText/DemoViewController.m; sourceTree = "<group>"; };
 		B33E33B6185E27E0005962B9 /* Speex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speex.framework; path = SpeechToText/Speex.framework; sourceTree = "<group>"; };
 		B3FFFF45185E0B390008EC39 /* SpeechToTextDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechToTextDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3FFFF48185E0B390008EC39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B3FFFF4A185E0B390008EC39 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B3FFFF4C185E0B390008EC39 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B3FFFF50185E0B390008EC39 /* SpeechToTextDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeechToTextDemo-Info.plist"; sourceTree = "<group>"; };
 		B3FFFF52185E0B390008EC39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3FFFF54185E0B390008EC39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -61,7 +50,6 @@
 		B3FFFF5B185E0B390008EC39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3FFFF60185E0B390008EC39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B3FFFF66185E0B3A0008EC39 /* SpeechToTextDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechToTextDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3FFFF67185E0B3A0008EC39 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B3FFFF6F185E0B3A0008EC39 /* SpeechToTextDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeechToTextDemoTests-Info.plist"; sourceTree = "<group>"; };
 		B3FFFF71185E0B3A0008EC39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3FFFF73185E0B3A0008EC39 /* SpeechToTextDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeechToTextDemoTests.m; sourceTree = "<group>"; };
@@ -72,11 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84EF79EC1901E67100D9089B /* AudioToolbox.framework in Frameworks */,
 				B33E33B7185E27E0005962B9 /* Speex.framework in Frameworks */,
-				B3FFFF4B185E0B390008EC39 /* CoreGraphics.framework in Frameworks */,
-				B3FFFF4D185E0B390008EC39 /* UIKit.framework in Frameworks */,
-				B3FFFF49185E0B390008EC39 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,9 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3FFFF68185E0B3A0008EC39 /* XCTest.framework in Frameworks */,
-				B3FFFF6A185E0B3A0008EC39 /* UIKit.framework in Frameworks */,
-				B3FFFF69185E0B3A0008EC39 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,8 +88,8 @@
 		B3FFFF3C185E0B390008EC39 = {
 			isa = PBXGroup;
 			children = (
-				84EF79F61901FB5300D9089B /* SpeechTranscriber */,
 				B3FFFF4E185E0B390008EC39 /* SpeechToTextDemo */,
+				84EF79F61901FB5300D9089B /* SpeechTranscriber */,
 				B3FFFF6D185E0B3A0008EC39 /* SpeechToTextDemoTests */,
 				B3FFFF47185E0B390008EC39 /* Frameworks */,
 				B3FFFF46185E0B390008EC39 /* Products */,
@@ -127,12 +108,7 @@
 		B3FFFF47185E0B390008EC39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84EF79EB1901E67100D9089B /* AudioToolbox.framework */,
 				B33E33B6185E27E0005962B9 /* Speex.framework */,
-				B3FFFF48185E0B390008EC39 /* Foundation.framework */,
-				B3FFFF4A185E0B390008EC39 /* CoreGraphics.framework */,
-				B3FFFF4C185E0B390008EC39 /* UIKit.framework */,
-				B3FFFF67185E0B3A0008EC39 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

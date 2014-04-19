@@ -1,9 +1,9 @@
 //
-//  AQRecorderState.h
-//  SpeechToTextDemo
+//  SpeechRecorder.h
+//  SpeechRecorder
 //
-//  Created by admin on 4/18/14.
-//  Copyright (c) 2014 Muhammad Zeeshan. All rights reserved.
+//  Created by James Smith on 4/18/14.
+//  Copyright (c) 2014 James Smith. All rights reserved.
 //
 
 @import Foundation;
