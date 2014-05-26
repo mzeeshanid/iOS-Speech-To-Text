@@ -281,7 +281,10 @@ static void DeriveBufferSize (AudioQueueRef audioQueue, AudioStreamBasicDescript
 
 - (void)postByteData:(NSData *)byteData {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    NSURL *url = [NSURL URLWithString:@"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://www.google.com/speech-api/v2/recognize?xjerr=1&client=chromium&lang=en-US&key=%@",GOOGLE_SPEECH_TO_TEXT_KEY];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:byteData];
